@@ -24,7 +24,7 @@ h2 {
     align-items: center;
 }
 
-input {
+.auth input {
     font-size: 1.1em;
     color: #d8003f;
     text-align: center;
