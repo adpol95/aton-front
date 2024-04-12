@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    color: #d8003f;
+}
+
+table {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+    border-collapse: collapse;
+}
+table,
+thead,
+tbody,
+th,
+td {
+    border: #d8003f solid 1px;
+
+}
+
+th,
+td {
+    padding: 1em;
+    text-align: center;
+}
+
+.clients__status-area {
+    text-align: start;
+}
+
+.clients__change-status-area {
+    flex-direction: column;
+}
+.clients__change-status-area input {
+    accent-color: #d8003f;
+}
+
+.clients__ratio-box {
+    display: flex;
+    align-items: center;
+}
+.clients__status-area--top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+

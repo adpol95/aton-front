@@ -3,7 +3,6 @@ import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 function Clients() {
     const auth = useAuthUser();
-    console.log(auth)
     const [datas, setDatas] = useState([]);
     const [statusCl, setStatusCl] = useState([]);
     const [btnState, setBtnState] = useState([]);
@@ -52,7 +51,11 @@ function Clients() {
     }, [statusCl])
     return (
         <div className="clients">
-            {dataIsReady ? <table style={{display: "flex", flexDirection: "column"}}>
+            <h1>
+                Таблица клиентов авторизованного
+                пользователя
+            </h1>
+            {dataIsReady ? <table>
                     <thead>
                     <th scope="col">Номер счета</th>
                     <th scope="col">Фамилия</th>
@@ -60,7 +63,6 @@ function Clients() {
                     <th scope="col">Отчество</th>
                     <th scope="col">Дата рождения</th>
                     <th scope="col">ИНН</th>
-                    <th scope="col">ФИО ответственного</th>
                     <th scope="col">Статус</th>
                     <tbody>
                     {
@@ -71,25 +73,36 @@ function Clients() {
                             <td>{item.surName}</td>
                             <td>{item.birthDay}</td>
                             <td>{item.tin}</td>
-                            <td>{item.responsibleFullName}</td>
-                            <td>
-                                {item.status}
-                                <button name={i + ""} onClick={(event) => {
-                                    setBtnState(btnState.map((el, i) => i + "" === event.target.name ? !el : el))
-                                }}>
-                                    &#9998;
-                                </button>
-                                <form style={{display: !btnState[i] ? "none" : "block"}} onChange={(event) => {
+                            <td className="clients__status-area">
+                                <div className="clients__status-area--top">
+                                <span style={{
+                                    color: item.status === "Не в работе" ? "yellowgreen"
+                                        : item.status === "В работе" ? "blue"
+                                            : item.status === "Отказ" ? "#d8003f" : "green", paddingRight: "1em"
+                                }}>{item.status}</span>
+                                    <button name={i + ""} onClick={(event) => {
+                                        setBtnState(btnState.map((el, i) => i + "" === event.target.name ? !el : el))
+                                    }}>
+                                        &#9998;
+                                    </button>
+                                </div>
+                                <form style={{display: !btnState[i] ? "none" : "flex"}} onChange={(event) => {
                                     if (event.target.checked) {
                                         setStatusCl([event.target.value, i])
                                     }
-                                }}>
-                                    <input type="radio" id="html" name="fav_language" value="В работе"/>
-                                    <label htmlFor="html">В работе</label><br/>
-                                    <input type="radio" id="css" name="fav_language" value="Отказ"/>
-                                    <label htmlFor="css">Отказ</label><br/>
-                                    <input type="radio" id="javascript" name="fav_language" value="Сделка закрыта"/>
-                                    <label htmlFor="javascript">Сделка закрыта</label>
+                                }} className="clients__change-status-area">
+                                    <div className="clients__ratio-box">
+                                        <input type="radio" id="html" name="fav_language" value="В работе"/>
+                                        <label htmlFor="html">В работе</label><br/>
+                                    </div>
+                                    <div className="clients__ratio-box">
+                                        <input type="radio" id="css" name="fav_language" value="Отказ"/>
+                                        <label htmlFor="css">Отказ</label><br/>
+                                    </div>
+                                    <div className="clients__ratio-box">
+                                        <input type="radio" id="javascript" name="fav_language" value="Сделка закрыта"/>
+                                        <label htmlFor="javascript">Сделка закрыта</label>
+                                    </div>
                                 </form>
                             </td>
                         </tr>)

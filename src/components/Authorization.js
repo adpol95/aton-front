@@ -68,7 +68,6 @@ function Authorization() {
                 <button type="submit" className="auth__accept-btn">
                     Войти
                 </button>
-                <h3><Link to="registration">Регистрация</Link></h3>
             </form>
         </div>
     )
