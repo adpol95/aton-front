@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {useNavigate} from "react-router";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
-import {Link} from "react-router-dom";
 
 function Authorization() {
     const [loginIn, setLoginIn] = useState('');
