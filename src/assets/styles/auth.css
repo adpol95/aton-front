@@ -28,8 +28,8 @@ input {
     font-size: 1.1em;
     color: #d8003f;
     text-align: center;
-    border-radius: 2em;
     height: 1.3em;
     border: none;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
 }
