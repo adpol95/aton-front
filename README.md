@@ -1,7 +1,8 @@
-# Getting Started with Create React App
+# Front-End часть для тестового задания в компанию ATON
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## В файле .env REACT_APP_STATE с номером 1 залинкован в проекте, что бы изменить путь запроса на Back(с локального на развернутый в сети интернет), установить на тот который нужен 1, на не нужный установить 2 
 ## Available Scripts
 
 In the project directory, you can run:
